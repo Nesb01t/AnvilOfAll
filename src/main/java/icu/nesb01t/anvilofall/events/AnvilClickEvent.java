@@ -20,9 +20,9 @@ public class AnvilClickEvent implements Listener {
             if (event.getSlot() == 0) { // 第一格
                 return;
             } else if (event.getSlot() == 1) { // 第二格
-                ItemStack item = event.getInventory().getItem(1);
                 Player player = (Player) event.getWhoClicked();
-                player.sendMessage(item.getItemMeta().getDisplayName());
+                String name = AnvilUtils.getFixItemType(anvil);
+                player.sendMessage(name);
             } else { // 确认
                 ItemStack item = event.getInventory().getItem(0);
                 ItemStack material = event.getInventory().getItem(1);
